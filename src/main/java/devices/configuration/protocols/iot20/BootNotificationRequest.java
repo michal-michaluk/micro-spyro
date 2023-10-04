@@ -1,5 +1,6 @@
 package devices.configuration.protocols.iot20;
 
+import intervals.DeviceInfo;
 import lombok.Value;
 
 @Value
@@ -32,5 +33,9 @@ class BootNotificationRequest {
         Triggered,
         Unknown,
         Watchdog
+    }
+
+    public DeviceInfo toDeviceInfo(String deviceId) {
+        return new DeviceInfo(deviceId, device.vendorName, device.model, device.firmwareVersion);
     }
 }
